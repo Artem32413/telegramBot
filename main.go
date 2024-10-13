@@ -2,11 +2,15 @@ package main
 
 import (
 	"flag"
+	"lesson/clients/telegram"
 	"log"
+)
+const (
+	tgBotHost = "api.telegram.org"
 )
 
 func main() {
-	t := mustToken()
+	tgClient := telegram.New(mustToken())
 }
 
 func mustToken() string{
@@ -15,5 +19,6 @@ func mustToken() string{
 	if *token == ""{
 		log.Fatal("token-bot = nil")
 	}
+	return *token 
 }
 
